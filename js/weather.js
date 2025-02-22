@@ -6,16 +6,17 @@ const gradus = document.querySelector('.card_gradus')
 const minMax = document.querySelector('.card_min-max')
 const errorEl = document.querySelector('.err-city')
 
-async function checkWeather() {
+const apiKey = 'd8c6141a21074bfbad0120614252102'
+
+async function checkWeather(query) {
     try {
-        const cityName = weatherInputEl.value.trim()
-        if (!cityName) {
+        if (!query) {
             errorEl.textContent = `Введите город!`
             return
         }
 
-        const apiKey = `https://api.weatherapi.com/v1/forecast.json?key=d8c6141a21074bfbad0120614252102&q=${cityName}&days=7`
-        const response = await fetch(apiKey)
+        const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=7`
+        const response = await fetch(url)
         const data = await response.json()
 
         if (!data.forecast) {
@@ -25,23 +26,43 @@ async function checkWeather() {
         const forecastArr = data.forecast.forecastday[0]
         const day = forecastArr.day
 
-        title.textContent = `${cityName[0].toUpperCase()}${cityName.slice(1)}`
+        title.textContent = `${data.location.name}`
         gradus.textContent = `${Math.round(day.avgtemp_c)}°`
         minMax.textContent = `Макс: ${Math.round(day.maxtemp_c)}°, мин: ${Math.round(day.mintemp_c)}°`
 
         weatherCardEl.classList.remove('hidden')
         errorEl.textContent = ''
     } catch (err) {
-        errorEl.textContent = `Города "${weatherInputEl.value.trim()}" не существует!`
+        errorEl.textContent = `Ошибка: ${err.message}`
     }
 }
 
 function handleEvent(e) {
     if (e.type === 'click' || (e.type === 'keydown' && e.key === 'Enter')) {
-        checkWeather()
+        checkWeather(weatherInputEl.value.trim())
         weatherInputEl.value = ''
     }
 }
+
+// Функция для получения местоположения пользователя
+function getUserLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords
+                checkWeather(`${latitude},${longitude}`) // Передаём координаты в API
+            },
+            (error) => {
+                errorEl.textContent = `Ошибка определения местоположения: ${error.message}`
+            }
+        )
+    } else {
+        errorEl.textContent = 'Геолокация не поддерживается вашим браузером.'
+    }
+}
+
+// Автоматический запуск при загрузке страницы
+document.addEventListener('DOMContentLoaded', getUserLocation)
 
 searchBtnEl.addEventListener('click', handleEvent)
 weatherInputEl.addEventListener('keydown', handleEvent)
