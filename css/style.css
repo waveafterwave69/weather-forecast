@@ -255,6 +255,18 @@ body {
   text-decoration: underline;
 }
 
+.hidden {
+  display: none;
+}
+
+.err-city {
+  color: red;
+  font-weight: 400;
+  font-size: 25px;
+  margin-top: 20px;
+  text-align: center;
+}
+
 @media (max-width: 620px) {
   .switch-theme {
     margin-top: 30px;
@@ -289,6 +301,9 @@ body {
     font-size: 18px;
     line-height: 23.94px;
   }
+  .err-city {
+    font-size: 16px;
+  }
 }
 @media (max-width: 435px) {
   .search_input {
@@ -304,15 +319,11 @@ body {
   .git-content {
     row-gap: 5px;
   }
-}
-.hidden {
-  display: none;
-}
-
-.err-city {
-  color: red;
-  font-weight: 400;
-  font-size: 25px;
-  margin-top: 20px;
-  text-align: center;
+  .err-city {
+    color: red;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: center;
+  }
 }
