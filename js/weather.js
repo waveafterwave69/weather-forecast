@@ -1,57 +1,47 @@
 const weatherInputEl = document.querySelector('.search_input')
-const seacrchBtnel = document.querySelector('.search_btn')
+const searchBtnEl = document.querySelector('.search_btn')
 const weatherCardEl = document.querySelector('.card')
-const dayData = document.querySelector('.day')
-const currDayData = document.querySelector('.day-data')
 const title = document.querySelector('.card_title')
 const gradus = document.querySelector('.card_gradus')
 const minMax = document.querySelector('.card_min-max')
+const errorEl = document.querySelector('.err-city')
 
 async function checkWeather() {
     try {
         const cityName = weatherInputEl.value.trim()
+        if (!cityName) {
+            errorEl.textContent = `Введите город!`
+            return
+        }
+
         const apiKey = `https://api.weatherapi.com/v1/forecast.json?key=d8c6141a21074bfbad0120614252102&q=${cityName}&days=7`
         const response = await fetch(apiKey)
         const data = await response.json()
-        const forecast = await data.forecast
-        const keys = Object.keys(forecast)
-        const forecastArr = forecast[keys[0]]
-        const da = forecastArr[0]
-        const day = await da.day
-        const temp = await day.avgtemp_c
-        const minTemp = await day.mintemp_c
-        const maxTemp = await day.maxtemp_c
 
-        title.textContent = `${cityName[0].toUpperCase()}${cityName.slice(
-            1,
-            cityName.length
-        )}`
-        gradus.textContent = `${parseInt(temp)}°`
-        minMax.textContent = `Макс: ${parseInt(maxTemp)}°, мин: ${parseInt(
-            minTemp
-        )}°`
+        if (!data.forecast) {
+            throw new Error('Неверный ответ от API')
+        }
+
+        const forecastArr = data.forecast.forecastday[0]
+        const day = forecastArr.day
+
+        title.textContent = `${cityName[0].toUpperCase()}${cityName.slice(1)}`
+        gradus.textContent = `${Math.round(day.avgtemp_c)}°`
+        minMax.textContent = `Макс: ${Math.round(day.maxtemp_c)}°, мин: ${Math.round(day.mintemp_c)}°`
+
         weatherCardEl.classList.remove('hidden')
+        errorEl.textContent = ''
     } catch (err) {
-        const cityName = weatherInputEl.value.trim()
-        document.querySelector(
-            '.err-city'
-        ).textContent = `Города "${cityName}" не существует!`
+        errorEl.textContent = `Города "${weatherInputEl.value.trim()}" не существует!`
     }
 }
 
-seacrchBtnel.addEventListener('click', function () {
-    if (
-        weatherInputEl.value.trim() == 0 ||
-        weatherInputEl.value.trim() == '' ||
-        weatherInputEl.value.trim() == undefined ||
-        weatherInputEl.value.trim() == null
-    ) {
-        document.querySelector('.err-city').textContent = `Введите город!`
-    } else {
+function handleEvent(e) {
+    if (e.type === 'click' || (e.type === 'keydown' && e.key === 'Enter')) {
         checkWeather()
-        document.querySelector('.err-city').textContent = ''
-        document.querySelector('.card').classList.add('hidden')
+        weatherInputEl.value = ''
     }
+}
 
-    weatherInputEl.value = ''
-})
+searchBtnEl.addEventListener('click', handleEvent)
+weatherInputEl.addEventListener('keydown', handleEvent)
