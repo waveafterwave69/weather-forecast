@@ -13,7 +13,7 @@ async function checkWeather(query) {
     try {
         if (!query) {
             errorEl.placeholder = `Не удалось найти город..`
-            errorEl.classList.add('error')
+            // errorEl.classList.add('error')
             return
         }
 
@@ -54,7 +54,7 @@ function getUserLocation() {
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 const { latitude, longitude } = position.coords
-                checkWeather(`${latitude},${longitude}`) // Передаём координаты в API
+                checkWeather(`${latitude},${longitude}`)
             },
             (error) => {
                 errorEl.placeholder = `Ошибка определения местоположения: ${error.message}`
@@ -69,3 +69,24 @@ document.addEventListener('DOMContentLoaded', getUserLocation)
 
 searchBtnEl.addEventListener('click', handleEvent)
 weatherInputEl.addEventListener('keydown', handleEvent)
+
+// делаем движующийся body
+
+const animationBody = document.body
+let targetX = 0, targetY = 0
+let currentX = 0, currentY = 0
+
+animationBody.addEventListener('mousemove', (event) => {
+    targetX = (event.clientX / window.innerWidth) * 100
+    targetY = (event.clientY / window.innerHeight) * 100
+})
+
+function animateBackground() {
+    currentX += (targetX - currentX) * 0.1
+    currentY += (targetY - currentY) * 0.1
+
+    animationBody.style.backgroundPosition = `${currentX}% ${currentY}%`
+    requestAnimationFrame(animateBackground)
+}
+
+animateBackground()
