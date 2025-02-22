@@ -140,12 +140,11 @@ body {
   column-gap: 35px;
 }
 
-.search_input,
-.err-city {
+.search_input {
   width: 100%;
   font-weight: 400;
   font-size: 20px;
-  line-height: 26.6px;
+  line-height: 27px;
 }
 
 .card {
@@ -161,7 +160,7 @@ body {
 }
 
 .card_title {
-  line-height: 42.56px;
+  line-height: 43px;
   font-size: 32px;
   font-weight: 600;
 }
@@ -169,19 +168,19 @@ body {
 .card_gradus {
   font-weight: 350;
   font-size: 128px;
-  line-height: 170.25px;
+  line-height: 170px;
 }
 
 .card_weather {
   font-weight: 600;
   font-size: 24px;
-  line-height: 31.92px;
+  line-height: 32px;
 }
 
 .card_min-max {
   font-weight: 600;
   font-size: 24px;
-  line-height: 31.92px;
+  line-height: 32px;
 }
 
 .git {
@@ -209,7 +208,7 @@ body {
 
 .git_developer {
   color: #f8efef;
-  line-height: 15.96px;
+  line-height: 16px;
   font-weight: 400;
   font-size: 12px;
 }
@@ -219,14 +218,6 @@ body {
 
 .hidden {
   display: none;
-}
-
-.err-city {
-  color: red;
-  font-weight: 400;
-  font-size: 25px;
-  margin-top: 20px;
-  text-align: center;
 }
 
 @media (max-width: 620px) {
@@ -259,9 +250,6 @@ body {
     font-size: 18px;
     line-height: 24px;
   }
-  .err-city {
-    font-size: 16px;
-  }
 }
 @media (max-width: 435px) {
   .search_input {
@@ -276,13 +264,6 @@ body {
   }
   .git-content {
     row-gap: 5px;
-  }
-  .err-city {
-    color: red;
-    font-weight: 400;
-    font-size: 14px;
-    margin-top: 20px;
-    text-align: center;
   }
 }
 
