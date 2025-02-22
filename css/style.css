@@ -214,11 +214,13 @@ body {
 }
 
 .git {
-  position: absolute;
-  bottom: 31px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 262px;
 }
 
 .git-content {

@@ -172,10 +172,9 @@ body {
 }
 
 .git {
-    position: absolute;
-    bottom: 31px;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    margin-top: 262px;
 }
 
 .git-content {
