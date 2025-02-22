@@ -1,0 +1,265 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+aside,
+nav,
+footer,
+header,
+section,
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul,
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button,
+input[type=submit] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #111010;
+}
+
+.container {
+  max-width: 870px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.switch-theme {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+  margin-bottom: 105px;
+}
+
+.search {
+  background-color: #f8efef;
+  border-radius: 50px;
+  padding: 13px 35px;
+  box-shadow: 0 0 10px #ffffff;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 35px;
+}
+
+.search_input {
+  width: 100%;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26.6px;
+}
+
+.card {
+  color: #f8efef;
+  margin-top: 95px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_title {
+  line-height: 42.56px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.card_gradus {
+  font-weight: 350;
+  font-size: 128px;
+  line-height: 170.25px;
+}
+
+.card_weather {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 31.92px;
+}
+
+.card_min-max {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 31.92px;
+}
+
+.git {
+  display: flex;
+  justify-content: center;
+  margin-top: 262px;
+}
+
+.git-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3px;
+}
+
+.git-developers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.git_img {
+  width: 29px;
+}
+
+.git_developer {
+  color: #f8efef;
+  line-height: 15.96px;
+  font-weight: 400;
+  font-size: 12px;
+}
+.git_developer:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 620px) {
+  .switch-theme {
+    margin-top: 30px;
+    margin-bottom: 54px;
+  }
+  .search {
+    padding: 8px 17px;
+    display: flex;
+    column-gap: 17px;
+  }
+  .search_input {
+    font-size: 18px;
+    line-height: 15.96px;
+  }
+  .card_title {
+    font-size: 24px;
+    line-height: 31.92px;
+  }
+  .card_gradus {
+    font-size: 96px;
+    line-height: 127.69px;
+  }
+  .card_weather {
+    font-size: 18px;
+    line-height: 23.94px;
+  }
+  .card_min-max {
+    font-size: 18px;
+    line-height: 23.94px;
+  }
+}
+@media (max-width: 435px) {
+  .search_input {
+    font-size: 12px;
+  }
+  .git_img {
+    width: 19px;
+  }
+  .git_developer {
+    line-height: 13.3px;
+    font-size: 10px;
+  }
+  .git-content {
+    row-gap: 5px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
