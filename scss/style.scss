@@ -1,6 +1,6 @@
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     border: none;
 }
 *,
@@ -74,7 +74,6 @@ input[type='submit'] {
     display: inline-block;
     box-shadow: none;
     background-color: transparent;
-    background: none;
     cursor: pointer;
 }
 input:focus,
@@ -95,7 +94,7 @@ legend {
 }
 
 body {
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI', sans-serif;
     background-color: #111010;
 }
 
@@ -110,18 +109,13 @@ body {
     justify-content: center;
     margin-top: 35px;
     margin-bottom: 105px;
-    & button:hover {
-        box-shadow: 0px 0px 10px #ffffff;
-        border-radius: 100px;
-        transition-duration: 0.2s;
-    }
 }
 
 .search {
     background-color: #f8efef;
     border-radius: 50px;
     padding: 13px 35px;
-    box-shadow: 0px 0px 10px #ffffff;
+    box-shadow: 0 0 10px #ffffff;
     display: flex;
     justify-content: space-between;
     column-gap: 35px;
@@ -132,7 +126,6 @@ body {
     font-weight: 400;
     font-size: 20px;
     line-height: 26.6px;
-    letter-spacing: 4%;
 }
 
 .card {
@@ -199,7 +192,7 @@ body {
     line-height: 15.96px;
     font-weight: 400;
     font-size: 12px;
-    font-family: 'Segoe UI';
+
     &:hover {
         text-decoration: underline;
     }
@@ -251,4 +244,16 @@ body {
     .git-content {
         row-gap: 5px;
     }
+}
+
+.hidden {
+    display: none;
+}
+
+.err-city {
+    color: red;
+    font-weight: 400;
+    font-size: 25px;
+    margin-top: 20px;
+    text-align: center;
 }
