@@ -44,7 +44,6 @@ function handleEvent(e) {
     }
 }
 
-// Функция для получения местоположения пользователя
 function getUserLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -61,7 +60,6 @@ function getUserLocation() {
     }
 }
 
-// Автоматический запуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', getUserLocation)
 
 searchBtnEl.addEventListener('click', handleEvent)

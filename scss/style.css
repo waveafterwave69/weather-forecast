@@ -123,6 +123,7 @@ body {
 }
 
 .switch-theme {
+  visibility: hidden;
   display: flex;
   justify-content: center;
   margin-top: 35px;
@@ -139,7 +140,8 @@ body {
   column-gap: 35px;
 }
 
-.search_input {
+.search_input,
+.err-city {
   width: 100%;
   font-weight: 400;
   font-size: 20px;
@@ -239,23 +241,23 @@ body {
   }
   .search_input {
     font-size: 18px;
-    line-height: 15.96px;
+    line-height: 16px;
   }
   .card_title {
     font-size: 24px;
-    line-height: 31.92px;
+    line-height: 32px;
   }
   .card_gradus {
     font-size: 96px;
-    line-height: 127.69px;
+    line-height: 128px;
   }
   .card_weather {
     font-size: 18px;
-    line-height: 23.94px;
+    line-height: 24px;
   }
   .card_min-max {
     font-size: 18px;
-    line-height: 23.94px;
+    line-height: 24px;
   }
   .err-city {
     font-size: 16px;
@@ -269,7 +271,7 @@ body {
     width: 19px;
   }
   .git_developer {
-    line-height: 13.3px;
+    line-height: 13px;
     font-size: 10px;
   }
   .git-content {
