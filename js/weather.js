@@ -14,11 +14,10 @@ async function checkWeather(query) {
         if (!query) {
             errorEl.placeholder = `Не удалось найти город..`
             // errorEl.classList.add('error')
-            return
+            return;
         }
 
         errorEl.placeholder = 'Введите город...'
-
 
         const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=7`
         const response = await fetch(url)
@@ -50,6 +49,7 @@ function handleEvent(e) {
 }
 
 function getUserLocation() {
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position) => {

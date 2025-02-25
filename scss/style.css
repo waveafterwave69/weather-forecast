@@ -112,6 +112,7 @@ legend {
 }
 
 body {
+  letter-spacing: 1px;
   font-family: "Segoe UI", sans-serif;
   background-color: #111010;
   background-image: url("../img/3.avif");
@@ -218,7 +219,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
 }
 
 @media (max-width: 620px) {
@@ -266,6 +267,17 @@ body {
   .git-content {
     row-gap: 5px;
   }
+}
+.loading {
+  font-size: 22px;
+  font-weight: lighter;
+  letter-spacing: 1.3px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.loading .active {
+  display: flex;
 }
 
 /*# sourceMappingURL=style.css.map */
