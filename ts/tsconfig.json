@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",            // Компиляция в ECMAScript 6
+    "module": "commonjs",       // Использование CommonJS модулей
+    "strict": true,             // Включение строгой типизации
+    "esModuleInterop": true,    // Поддержка импорта CommonJS модулей в стиле ES
+    "outDir": "./dist",         // Директория для скомпилированных файлов
+    "rootDir": "./src",         // Директория исходных файлов
+    "skipLibCheck": true        // Пропуск проверки типов в библиотеках
+  },
+  "include": [
+    "src/**/*"                  // Включение всех файлов в папке src
+  ],
+  "exclude": [
+    "node_modules"              // Исключение папки node_modules
+  ]
+}
